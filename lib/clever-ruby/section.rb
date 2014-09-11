@@ -4,6 +4,10 @@ module Clever
     include Clever::APIOperations::List
     @linked_resources = [:teachers, :students, :schools, :districts, :events]
 
+    def instructor
+      @instructor ||= Clever::Teacher.retrieve(teacher)
+    end
+
     # Optional attributes
     # @see Clever::CleverObject.optional_attributes
     # @api private

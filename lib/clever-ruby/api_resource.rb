@@ -63,6 +63,10 @@ module Clever
       Util.convert_to_clever_object Clever.request(:get, get_uri(resource_type), filters)[:data]
     end
 
+    def get_uri(resource)
+      File.join(url, resource)
+    end
+
     class << self
       # Get a list of nested resources in the Clever API for this resource
       # @api private
